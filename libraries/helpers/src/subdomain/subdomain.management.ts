@@ -1,6 +1,6 @@
-import { parse } from 'tldts';
-
-export function getCookieUrlFromDomain(domain: string) {
-  const url = parse(domain);
-  return url.domain! ? '.' + url.domain! : url.hostname!;
+export function getCookieUrlFromDomain(_domain: string): undefined {
+  // Omit Domain to create host-only cookies. Deriving the registrable domain
+  // shares session credentials with every sibling application on that domain.
+  // This fork serves the frontend and API behind the same public origin.
+  return undefined;
 }
